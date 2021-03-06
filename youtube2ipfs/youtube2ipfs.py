@@ -73,13 +73,14 @@ def main():
 	parser = argparse.ArgumentParser(description='Download videos from YouTube (and similar video platforms) and add them to IPFS.')
 	parser.add_argument('urls', metavar='urls', type=str, nargs='+',
 	                    help='URLs of videos')
+	parser.add_argument('--ipfs-address', type=str, default='/dns/localhost/tcp/5001/http', help='IPFS HTTP API (multiaddr, default: \'/dns/localhost/tcp/5001/http\')')
 	parser.add_argument('--verbose', '-v', action='count', default=0)
 
 	args = parser.parse_args()
 
 	setupLogging(args.verbose)
 
-	with ipfshttpclient.connect() as ipfsclient:
+	with ipfshttpclient.connect(args.ipfs_address) as ipfsclient:
 		with tempfile.TemporaryDirectory() as tmpdirname:
 			yt2ipfs = Youtube2IPFS(
 				tempdir=tmpdirname,
