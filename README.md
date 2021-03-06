@@ -17,10 +17,13 @@ pip install youtube2ipfs
 First, make sure you have an IPFS node running. Then:
 
 ```sh
-youtube2ipfs -v https://www.youtube.com/watch?v=FHH6hIc2GyE
+$ youtube2ipfs https://www.youtube.com/watch?v=FHH6hIc2GyE
+QmaqcMNVRvet1ZfRFoEBkGaEVLHKTUtkgX3139gpPc1zve
 ```
 
-It accepts multiple URL's, as well as
+It accepts multiple URL's, as well as channels and playlists. Multiple files will be added to the same top-level directory. Subtitles will also be downloaded and metadata is added to the video file.
+
+For more details, use the `--verbose` or `-v` option (once or twice). A custom IPFS node can also be specified.
 
 ## Workaround for using IPFS 0.8
 Manually install a forked py-ipfs-http-client with go-ipfs version detection disabled:
