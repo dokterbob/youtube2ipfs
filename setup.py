@@ -20,6 +20,7 @@ setup(
 	version='0.1',
 	description='Download videos from YouTube (and similar video platforms) and add them to IPFS.',
     long_description=README,
+    long_description_content_type='text/markdown',
     install_requires=REQUIREMENTS,
 	author='Mathijs de Bruin',
 	author_email='mathijs@mathijsfietst.nl',
