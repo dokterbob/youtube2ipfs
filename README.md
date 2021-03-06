@@ -14,6 +14,8 @@ pip install youtube2ipfs
 ```
 
 ## Usage
+First, make sure you have an IPFS node running. Then:
+
 ```sh
 youtube2ipfs -v https://www.youtube.com/watch?v=FHH6hIc2GyE
 ```
