@@ -17,16 +17,17 @@ class Youtube2IPFS(object):
 		for node in nodes:
 			logger.info('Added %s as %s to IPFS', node['Name'], node['Hash'])
 
+		# Return latest hash
+		return nodes[-1]['Hash']
+
 	def process(self, urls):
 		logger.info("Processing %s", urls)
 
 		def download_hook(d):
-		    if d['status'] == 'downloading':
-		    	logger.debug('Started download')
-		    elif d['status'] == 'error':
+		    if d['status'] == 'error':
 		    	logger.error('Error in download')
 		    elif d['status'] == 'finished':
-		        logger.debug('Finished downloading')
+		        logger.info('Finished downloading %s', d['filename'])
 
 		ydl_opts = {
 		    'prefer_free_formats': True,
@@ -34,7 +35,7 @@ class Youtube2IPFS(object):
 		    'progress_hooks': [download_hook],
 		    'allsubtitles': True,
 		    'writesubtitles': True,
-		    'outtmpl': '{}/%(id)s/%(title)s.%(ext)s'.format(self._tempdir),
+		    'outtmpl': '{}/%(id)s-%(title)s/%(title)s.%(ext)s'.format(self._tempdir),
 		    'restrictfilenames': True,
 		    'format': 'best',
 		    'postprocessors': [
@@ -49,7 +50,7 @@ class Youtube2IPFS(object):
 		    if result != 0:
 		    	logger.error('Error downloading, not adding to IPFS.')
 
-		    self.ipfs_add()
+		    return self.ipfs_add()
 
 def setupLogging(verbose):
 	logger.setLevel(logging.DEBUG)
@@ -85,7 +86,7 @@ def main():
 				ipfsclient=ipfsclient
 			)
 
-			yt2ipfs.process(args.urls)
+			print(yt2ipfs.process(args.urls))
 
 if __name__ == "__main__":
     main()
