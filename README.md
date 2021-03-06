@@ -9,8 +9,14 @@ Based on [youtube-dl](https://ytdl-org.github.io/youtube-dl/) and [py-ipfs-http-
 * [go-ipfs 0.7](https://dist.ipfs.io/go-ipfs/v0.7.0) (0.8 not yet supported by py-ipfs-http-client)
 
 ## Installation
+Latest published version:
 ```sh
-pip install youtube2ipfs
+$ pip install youtube2ipfs
+```
+
+Bleeding edge:
+```sh
+$ pip install git+https://github.com/dokterbob/youtube2ipfs
 ```
 
 ## Usage
@@ -29,5 +35,5 @@ For more details, use the `--verbose` or `-v` option (once or twice). A custom I
 Manually install a forked py-ipfs-http-client with go-ipfs version detection disabled:
 
 ```sh
-pip install git+https://github.com/dokterbob/py-ipfs-http-client.git
+$ pip install git+https://github.com/dokterbob/py-ipfs-http-client.git
 ```
