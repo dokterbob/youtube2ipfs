@@ -1,11 +1,55 @@
 import argparse
 import logging
+import tempfile
+
+import youtube_dl
+import ipfshttpclient
 
 logger = logging.getLogger(__name__)
 
 class Youtube2IPFS(object):
-	def extract(self, url):
-		logger.info("Processing %s", url)
+	def __init__(self, tempdir, ipfsclient):
+		self._tempdir = tempdir
+		self._ipfsclient = ipfsclient
+
+	def ipfs_add(self):
+		nodes = self._ipfsclient.add(self._tempdir, recursive=True)
+		for node in nodes:
+			logger.info('Added %s as %s to IPFS', node['Name'], node['Hash'])
+
+	def process(self, urls):
+		logger.info("Processing %s", urls)
+
+		def download_hook(d):
+		    if d['status'] == 'downloading':
+		    	logger.debug('Started download')
+		    elif d['status'] == 'error':
+		    	logger.error('Error in download')
+		    elif d['status'] == 'finished':
+		        logger.debug('Finished downloading')
+
+		ydl_opts = {
+		    'prefer_free_formats': True,
+		    'logger': logger,
+		    'progress_hooks': [download_hook],
+		    'allsubtitles': True,
+		    'writesubtitles': True,
+		    'outtmpl': '{}/%(id)s/%(title)s.%(ext)s'.format(self._tempdir),
+		    'restrictfilenames': True,
+		    'format': 'best',
+		    'postprocessors': [
+			    {
+			    	'key': 'FFmpegMetadata'
+			    }
+		    ],
+		}
+
+		with youtube_dl.YoutubeDL(ydl_opts) as ydl:
+		    result = ydl.download(urls)
+		    if result != 0:
+		    	logger.error('Error downloading, not adding to IPFS.')
+
+		    self.ipfs_add()
 
 def setupLogging(verbose):
 	logger.setLevel(logging.DEBUG)
@@ -34,10 +78,14 @@ def main():
 
 	setupLogging(args.verbose)
 
-	yt2ipfs = Youtube2IPFS()
+	with ipfshttpclient.connect() as ipfsclient:
+		with tempfile.TemporaryDirectory() as tmpdirname:
+			yt2ipfs = Youtube2IPFS(
+				tempdir=tmpdirname,
+				ipfsclient=ipfsclient
+			)
 
-	for url in args.urls:
-		yt2ipfs.extract(url)
+			yt2ipfs.process(args.urls)
 
 if __name__ == "__main__":
     main()
