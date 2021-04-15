@@ -35,5 +35,5 @@ For more details, use the `--verbose` or `-v` option (once or twice). A custom I
 Manually install a forked py-ipfs-http-client with go-ipfs version detection disabled:
 
 ```sh
-$ pip install git+https://github.com/dokterbob/py-ipfs-http-client.git
+$ pip install git+https://github.com/ipfs-shipyard/py-ipfs-http-client.git
 ```
