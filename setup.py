@@ -17,7 +17,7 @@ except:
 
 setup(
 	name='youtube2ipfs',
-	version='0.1',
+	version='0.1.1',
 	description='Download videos from YouTube (and similar video platforms) and add them to IPFS.',
     long_description=README,
     long_description_content_type='text/markdown',
