@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "c50db82f746ce8653e1a94982659c85d907878de04eef0d1cec06e7dac5a9d67"
+            "sha256": "0bb67ac8b16c4b627de090b97b412646dc0866f20414a30bdc2e13f333fb9931"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -54,11 +54,11 @@
         },
         "ipfshttpclient": {
             "hashes": [
-                "sha256:161c348e91cdc194c06c8725446a51a2d758ff2cc5ea97ec98f49e2af2465405",
-                "sha256:feb1033c14c3ac87ee81264176c5beefeaf386385804427160466117ccc43693"
+                "sha256:9abc46e43e573e0e25544689bc2f264b3183de1dfcf9186d349213c164ce8216",
+                "sha256:fb2b12b249dd45c4110b946a16c03ec1eeba6789791bd425e678d93c3f631098"
             ],
             "index": "pypi",
-            "version": "==0.7.0"
+            "version": "==0.6.1"
         },
         "multiaddr": {
             "hashes": [
@@ -90,10 +90,10 @@
         },
         "urllib3": {
             "hashes": [
-                "sha256:2f4da4594db7e1e110a944bb1b551fdf4e6c136ad42e4234131391e21eb5b0df",
-                "sha256:e7b021f7241115872f92f43c6508082facffbd1c048e3c6e2bb9c2a157e28937"
+                "sha256:1b465e494e3e0d8939b50680403e3aedaa2bc434b7d5af64dfd3c958d7f5ae80",
+                "sha256:de3eedaad74a2683334e282005cd8d7f22f4d55fa690a2a1020a416cb0a47e73"
             ],
-            "version": "==1.26.4"
+            "version": "==1.26.3"
         },
         "varint": {
             "hashes": [
@@ -103,11 +103,11 @@
         },
         "youtube-dl": {
             "hashes": [
-                "sha256:34a034d9b2062e428710d4cd6365db7a64cd388e51a3f9ab74058179c95d8654",
-                "sha256:5031125b13c92d23197adbe5d20f7a0a03befc510cabbfccb757703b7e35c140"
+                "sha256:02432aa2dd0e859e64d74fca2ad624abf3bead3dba811d594100e1cb7897dce7",
+                "sha256:28663ce51bb35d0a0fa764aed3492b38c570da0a5a62fef3c28f4431522a6d4a"
             ],
             "index": "pypi",
-            "version": "==2021.4.7"
+            "version": "==2021.3.3"
         },
         "zipp": {
             "hashes": [

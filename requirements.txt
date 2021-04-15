@@ -1,2 +1,2 @@
-ipfshttpclient>=0.7.0
+ipfshttpclient
 youtube-dl
