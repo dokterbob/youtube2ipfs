@@ -7,7 +7,7 @@ verify_ssl = true
 
 [packages]
 youtube-dl = "*"
-ipfshttpclient = "*"
+ipfshttpclient = ">=0.7.0"
 
 [requires]
 python_version = "3.6"
