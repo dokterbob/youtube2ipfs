@@ -6,7 +6,7 @@ Based on [youtube-dl](https://ytdl-org.github.io/youtube-dl/) and [py-ipfs-http-
 ## Requirements
 * [ffmpeg](https://www.ffmpeg.org/)
 * [Python 3.8 or later](https://www.python.org/downloads/)
-* [go-ipfs 0.7](https://dist.ipfs.io/go-ipfs/v0.7.0) (0.8 not yet supported by py-ipfs-http-client)
+* [IPFS](https://docs.ipfs.io/install/)
 
 ## Installation
 Latest published version:
@@ -20,12 +20,14 @@ $ pip install git+https://github.com/dokterbob/youtube2ipfs
 ```
 
 ## Usage
-First, make sure you have an IPFS node running. Then:
+First, make sure you have IPFS running. Then:
 
 ```sh
 $ youtube2ipfs https://www.youtube.com/watch?v=FHH6hIc2GyE
 QmaqcMNVRvet1ZfRFoEBkGaEVLHKTUtkgX3139gpPc1zve
 ```
+
+You can view the result through the IPFS gateway: `https://gateway.ipfs.io/ipfs/QmaqcMNVRvet1ZfRFoEBkGaEVLHKTUtkgX3139gpPc1zve`
 
 It accepts multiple URL's, as well as channels and playlists. Multiple files will be added to the same top-level directory. Subtitles will also be downloaded and metadata is added to the video file.
 
