@@ -30,10 +30,3 @@ QmaqcMNVRvet1ZfRFoEBkGaEVLHKTUtkgX3139gpPc1zve
 It accepts multiple URL's, as well as channels and playlists. Multiple files will be added to the same top-level directory. Subtitles will also be downloaded and metadata is added to the video file.
 
 For more details, use the `--verbose` or `-v` option (once or twice). A custom IPFS node can also be specified.
-
-## Workaround for using IPFS 0.8
-Manually install a forked py-ipfs-http-client with go-ipfs version detection disabled:
-
-```sh
-$ pip install git+https://github.com/ipfs-shipyard/py-ipfs-http-client.git
-```
