@@ -6,8 +6,11 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-ipfshttpclient = ">=0.7.0"
-youtube_dl = "*"
+ipfshttpclient = ">=0.8.0a2"
+youtube_dl = ">=2021.6.6"
 
 [requires]
 python_version = "3.6"
+
+[pipenv]
+allow_prereleases = true

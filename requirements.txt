@@ -1,2 +1,2 @@
-ipfshttpclient>=0.7.0
-youtube-dl
+ipfshttpclient>=0.8.0a2
+youtube-dl>=2021.6.6
