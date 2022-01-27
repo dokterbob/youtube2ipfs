@@ -17,7 +17,7 @@ except:
 
 setup(
 	name='youtube2ipfs',
-	version='0.2.2',
+	version='0.3',
 	description='Download videos from YouTube (and similar video platforms) and add them to IPFS.',
     long_description=README,
     long_description_content_type='text/markdown',
@@ -27,7 +27,7 @@ setup(
 	url='https://github.com/dokterbob/youtube2ipfs',
 	packages=find_packages(),
 	classifiers=[
-		'Development Status :: 4 - Beta',
+		'Development Status :: 5 - Production/Stable',
 		'Environment :: Console',
 		'Intended Audience :: End Users/Desktop',
 		'Intended Audience :: Developers',
